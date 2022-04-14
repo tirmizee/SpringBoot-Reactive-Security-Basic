@@ -1,0 +1,8 @@
+spring.security:
+  filter.order: -100
+  user:
+    name: admin
+    password: pass
+    roles:
+      - ADMIN
+      - USER
