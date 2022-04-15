@@ -12,13 +12,14 @@ public class WebFluxSecurityConfig {
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
          http
              .authorizeExchange()
-                .pathMatchers("/resources/**").permitAll()
+                .pathMatchers("/login","/resources/**").permitAll()
                 .anyExchange().authenticated()
                 .and()
             .httpBasic().and()
             .formLogin()
-//                 .loginPage("")
-                 .and();
+                 .loginPage("/login")
+                 .and()
+                 .logout();
         return http.build();
     }
 
